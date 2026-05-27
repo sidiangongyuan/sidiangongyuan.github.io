@@ -1,40 +1,54 @@
-# Kang Yang Master's Research Portfolio
+# Kang Yang Academic Homepage
 
-Static GitHub Pages site for presenting Kang Yang's master's-period research
-work, with collaborative perception and first-author papers as the main thread.
+This repository hosts the source files for Kang Yang's public academic homepage.
 
-## Local Preview
+**Website:** [https://sidiangongyuan.github.io/](https://sidiangongyuan.github.io/)
 
-```powershell
-python -m http.server 4173
+The homepage presents master's-period research at Renmin University of China,
+with a focus on collaborative perception, autonomous driving perception, and
+multi-agent 3D object detection.
+
+## Featured Research
+
+The homepage highlights first-author collaborative perception work from the
+master's period:
+
+- **EIMC**: Efficient Instance-aware Multi-modal Collaborative Perception
+- **BOLT**: Online Lightweight Adaptation for Preparation-Free Heterogeneous Cooperative Perception
+- **ACCO**: Is Discretization Fusion All You Need for Collaborative Perception?
+- **CoDRMA**: Collaborative Depth Refinement via Dual-Mask and Dual-Attention for BEV Collaborative 3D Object Detection
+
+Additional research is listed separately to keep the main narrative centered on
+collaborative perception.
+
+## Repository Structure
+
+```text
+.
+├── index.html          # Static homepage entry point
+├── styles.css          # Page layout and visual styling
+├── app.js              # Publication and project data
+├── assets/             # Project figures and visual materials
+└── .nojekyll           # Ensures GitHub Pages serves files directly
 ```
 
-Then open `http://localhost:4173`.
+## Updating The Homepage
 
-## Deploy To GitHub Pages
-
-The target repository is `sidiangongyuan/sidiangongyuan.github.io`, but it was
-not publicly accessible during setup, and GitHub CLI is not installed in this
-environment. To publish:
+Most content is maintained in `app.js`. To update a project, publication, link,
+or metric, edit the corresponding data entry and push the change to `main`.
+GitHub Pages will redeploy the public website automatically.
 
 ```powershell
-git init
-git add index.html styles.css app.js assets README.md .nojekyll
-git commit -m "Build master's research portfolio"
-git branch -M main
-git remote add origin https://github.com/sidiangongyuan/sidiangongyuan.github.io.git
-git push -u origin main
+git add .
+git commit -m "Update homepage content"
+git push
 ```
-
-If the remote repository does not exist yet, create a public repository named
-`sidiangongyuan.github.io` under the `sidiangongyuan` GitHub account first.
 
 ## Content Notes
 
+- The public homepage is the canonical entry point:
+  [https://sidiangongyuan.github.io/](https://sidiangongyuan.github.io/).
 - The 2023 TMM paper is intentionally excluded from the master's-period
   portfolio.
-- CoDRMA uses a recreated overview image because a public framework figure was
-  not available from the sources accessible here.
-- Main data is maintained in `app.js` through consistent work fields:
-  `title`, `year`, `venue`, `role`, `category`, `image`, `problem`, `idea`,
-  `myRole`, `result`, `metrics`, and `links`.
+- CoDRMA uses a recreated overview figure because a public framework figure was
+  not available from accessible sources.
