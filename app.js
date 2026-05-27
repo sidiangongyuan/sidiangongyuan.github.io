@@ -96,6 +96,72 @@ const featuredWorks = [
   },
 ];
 
+const manuscriptWorks = [
+  {
+    id: "qumco",
+    title: "QumCo: Query-Based Multimodal Collaborative Perception",
+    shortTitle: "QumCo",
+    year: "2025",
+    venue: "Manuscript",
+    role: "Master's work",
+    category: "Query-based multimodal collaboration",
+    image: "assets/projects/qumco-framework.png",
+    alt: "QumCo framework showing multimodal input encoding, query-based multimodal and agent fusion, and a decoder.",
+    problem:
+      "Dense BEV representations in multimodal collaboration transmit redundant background features and often limit both communication efficiency and foreground detail.",
+    idea:
+      "Use sparse 3D query proposals across local multimodal fusion, transmission, and cross-agent fusion. Lg-IPE bridges LiDAR-space queries to precise image features, while A2A-Fusion and KNN-Fusion handle global agent interaction and local query refinement.",
+    myRole:
+      "Developed the query-centric multimodal collaboration direction, connecting LiDAR-image local fusion with cross-agent query transmission and fusion.",
+    result:
+      "Evaluated on OPV2V and DAIR-V2X, the method reports clear detection gains while reducing transmission volume compared with dense BEV communication.",
+    metrics: ["2025 manuscript", "3D query messages", "Lg-IPE / A2A / KNN"],
+    links: [],
+  },
+  {
+    id: "uecp",
+    title: "UECP: Uncertainty-Enhanced Collaborative Perception",
+    shortTitle: "UECP",
+    year: "2026",
+    venue: "Manuscript",
+    role: "Master's work",
+    category: "Uncertainty-aware fusion",
+    image: "assets/projects/uecp-framework.png",
+    alt: "UECP framework showing BEV encoding, an uncertainty head, uncertainty-aware pyramid fusion, and cooperative detection.",
+    problem:
+      "Confidence-map-guided fusion is coupled with detector outputs, so it can reinforce detection noise rather than provide independent physical evidence for collaborative weighting.",
+    idea:
+      "Predict a physically grounded uncertainty map supervised by LiDAR point density, then inject it into Uncertainty-Aware Pyramid Fusion through uncertainty-weighted downsampling and uncertainty-guided residual fusion.",
+    myRole:
+      "Built the uncertainty-enhanced fusion pipeline around the uncertainty map, UAPF, UWD, and UGRF for robust collaborative BEV perception.",
+    result:
+      "Reports stronger effectiveness and robustness on DAIR-V2X and V2V4REAL by using uncertainty as explicit evidence during fusion.",
+    metrics: ["2026 manuscript", "uncertainty map", "UAPF / UWD / UGRF"],
+    links: [],
+  },
+  {
+    id: "lrv2x",
+    title: "LR-V2X: Loss-Resilient Collaborative Perception under Low-Bandwidth Communication",
+    shortTitle: "LR-V2X",
+    year: "2026",
+    venue: "Manuscript",
+    role: "Master's work",
+    category: "Loss-resilient communication",
+    image: "assets/projects/lrv2x-framework.png",
+    alt: "LR-V2X framework showing compact latent transmission, latent prior decoding, noise-conditioned reconstruction, and pyramid feature fusion.",
+    problem:
+      "Low-bandwidth collaborative perception becomes brittle when packet loss corrupts compact transmitted features and leaves spatial holes in received BEV evidence.",
+    idea:
+      "Recover complete BEV context from corrupted compact latents using a Latent Prior Decoder and an ego-conditioned noise-based reconstructor before final fusion.",
+    myRole:
+      "Developed the loss-resilient reconstruction-first collaboration pipeline for packet loss and low-bandwidth V2X settings.",
+    result:
+      "Reports the strongest robustness under severe packet loss, including 90 percent packet loss, while using 64x less bandwidth than dense BEV fusion baselines.",
+    metrics: ["2026 manuscript", "90% packet loss", "64x lower bandwidth"],
+    links: [],
+  },
+];
+
 const arcSteps = [
   {
     title: "2024: refine camera BEV collaboration",
@@ -106,8 +172,16 @@ const arcSteps = [
     body: "ACCO asks whether collaboration must happen on discretized BEV maps, then moves communication to confident anchor queries.",
   },
   {
+    title: "2025: move multimodal collaboration to queries",
+    body: "QumCo keeps sparse 3D queries through local multimodal fusion, transmission, and cross-agent query fusion.",
+  },
+  {
     title: "2026: combine multimodal accuracy and bandwidth",
     body: "EIMC uses early collaborative voxels and heatmap-driven instance messages to make multimodal collaboration compact.",
+  },
+  {
+    title: "2026: improve robustness under uncertainty and loss",
+    body: "UECP injects physical uncertainty into fusion, while LR-V2X reconstructs missing BEV context when packets are lost.",
   },
   {
     title: "2026: adapt to unknown collaborators",
@@ -169,9 +243,9 @@ function renderArc() {
   });
 }
 
-function renderWorks() {
-  const container = document.querySelector("#featured-works");
-  featuredWorks.forEach((work) => {
+function renderWorks(selector, works) {
+  const container = document.querySelector(selector);
+  works.forEach((work) => {
     const article = document.createElement("article");
     article.className = "work-card";
     article.innerHTML = `
@@ -197,6 +271,7 @@ function renderWorks() {
     `;
     const links = article.querySelector(".work-links");
     work.links.forEach((link) => links.appendChild(createLink(link)));
+    if (work.links.length === 0) links.remove();
     container.appendChild(article);
   });
 }
@@ -226,6 +301,7 @@ function renderSources() {
 }
 
 renderArc();
-renderWorks();
+renderWorks("#featured-works", featuredWorks);
+renderWorks("#manuscript-works", manuscriptWorks);
 renderOtherResearch();
 renderSources();

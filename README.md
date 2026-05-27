@@ -18,6 +18,9 @@ master's period:
 - **ACCO**: Is Discretization Fusion All You Need for Collaborative Perception?
 - **CoDRMA**: Collaborative Depth Refinement via Dual-Mask and Dual-Attention for BEV Collaborative 3D Object Detection
 
+It also includes selected manuscript-stage collaborative perception work, with
+venue, submission, and private PDF details intentionally omitted.
+
 Additional research is listed separately to keep the main narrative centered on
 collaborative perception.
 
