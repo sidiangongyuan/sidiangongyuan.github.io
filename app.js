@@ -48,6 +48,30 @@ const featuredWorks = [
     ],
   },
   {
+    id: "uecp",
+    title: "UECP: Uncertainty-Enhanced Collaborative Perception",
+    shortTitle: "UECP",
+    year: "2026",
+    venue: "ECCV 2026 / arXiv",
+    role: "First author",
+    category: "Uncertainty-aware fusion",
+    image: "assets/projects/uecp-framework.png",
+    alt: "UECP method figure showing uncertainty-aware pyramid fusion and uncertainty-guided residual fusion.",
+    problem:
+      "Confidence-map-guided fusion is coupled with detector outputs, so it can reinforce detection noise rather than provide independent physical evidence for collaborative weighting.",
+    idea:
+      "Predict a physically grounded uncertainty map supervised by LiDAR point density, then inject it into Uncertainty-Aware Pyramid Fusion through uncertainty-weighted downsampling and uncertainty-guided residual fusion.",
+    myRole:
+      "Built the uncertainty-enhanced fusion pipeline around the uncertainty map, UAPF, UWD, and UGRF for robust collaborative BEV perception.",
+    result:
+      "Accepted to ECCV 2026 and reports stronger effectiveness and robustness on DAIR-V2X and V2V4REAL by using uncertainty as explicit evidence during fusion.",
+    metrics: ["ECCV 2026", "uncertainty map", "UAPF / UWD / UGRF"],
+    links: [
+      { label: "Paper", url: "https://arxiv.org/abs/2606.23046" },
+      { label: "Code", url: "https://github.com/sidiangongyuan/UECP" },
+    ],
+  },
+  {
     id: "acco",
     title: "Is Discretization Fusion All You Need for Collaborative Perception?",
     shortTitle: "ACCO",
@@ -116,27 +140,6 @@ const manuscriptWorks = [
     result:
       "Evaluated on OPV2V and DAIR-V2X, the method reports clear detection gains while reducing transmission volume compared with dense BEV communication.",
     metrics: ["2025 manuscript", "3D query messages", "Lg-IPE / A2A / KNN"],
-    links: [],
-  },
-  {
-    id: "uecp",
-    title: "UECP: Uncertainty-Enhanced Collaborative Perception",
-    shortTitle: "UECP",
-    year: "2026",
-    venue: "Manuscript",
-    role: "Master's work",
-    category: "Uncertainty-aware fusion",
-    image: "assets/projects/uecp-framework.png",
-    alt: "UECP framework showing BEV encoding, an uncertainty head, uncertainty-aware pyramid fusion, and cooperative detection.",
-    problem:
-      "Confidence-map-guided fusion is coupled with detector outputs, so it can reinforce detection noise rather than provide independent physical evidence for collaborative weighting.",
-    idea:
-      "Predict a physically grounded uncertainty map supervised by LiDAR point density, then inject it into Uncertainty-Aware Pyramid Fusion through uncertainty-weighted downsampling and uncertainty-guided residual fusion.",
-    myRole:
-      "Built the uncertainty-enhanced fusion pipeline around the uncertainty map, UAPF, UWD, and UGRF for robust collaborative BEV perception.",
-    result:
-      "Reports stronger effectiveness and robustness on DAIR-V2X and V2V4REAL by using uncertainty as explicit evidence during fusion.",
-    metrics: ["2026 manuscript", "uncertainty map", "UAPF / UWD / UGRF"],
     links: [],
   },
   {
@@ -216,6 +219,7 @@ const sourceLinks = [
   ["OpenReview", "https://openreview.net/profile?id=~yang_kang2"],
   ["EIMC", "https://arxiv.org/abs/2603.02532"],
   ["BOLT", "https://arxiv.org/abs/2605.00405"],
+  ["UECP", "https://arxiv.org/abs/2606.23046"],
   ["ACCO", "https://arxiv.org/abs/2503.13946"],
   ["CoDRMA", "https://dblp.org/rec/conf/case/YangWHJ24.html"],
   ["ProDiff", "https://arxiv.org/abs/2505.23048"],
