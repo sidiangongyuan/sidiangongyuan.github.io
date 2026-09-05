@@ -3,148 +3,174 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kang Yang | Collaborative Perception</title>
-    <meta
-      name="description"
-      content="Kang Yang's master's research portfolio on collaborative perception, autonomous driving perception, and multi-agent 3D detection."
-    />
-    <meta property="og:title" content="Kang Yang | Collaborative Perception" />
-    <meta
-      property="og:description"
-      content="A focused portfolio of master's research on collaborative perception from 2024 to 2026."
-    />
+    <meta name="color-scheme" content="light dark" />
+    <title>Kang Yang | Collaborative Perception &amp; Planning</title>
+    <meta name="description" content="Kang Yang at Renmin University of China. Research on collaborative perception, efficient V2X communication, and vision-language planning for autonomous driving." />
+    <link rel="canonical" href="https://sidiangongyuan.github.io/" />
+    <meta property="og:title" content="Kang Yang | Collaborative Perception &amp; Planning" />
+    <meta property="og:description" content="Research on collaborative perception and planning for autonomous driving. Selected papers, manuscripts, and code." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/projects/eimc-framework.png" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317483e'/%3E%3Cpath d='M15 43V21h7v9l11-9h10L30 31l14 12H33L22 33v10z' fill='%23f7fbf9'/%3E%3C/svg%3E"
-    />
+    <meta property="og:url" content="https://sidiangongyuan.github.io/" />
+    <meta property="og:image" content="https://sidiangongyuan.github.io/assets/projects/eimc-framework.png" />
+    <meta property="og:image:alt" content="EIMC collaborative perception framework" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317483e'/%3E%3Cpath d='M15 43V21h7v9l11-9h10L30 31l14 12H33L22 33v10z' fill='%23f7fbf9'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
   </head>
-  <body>
-    <header class="site-header" aria-label="Primary">
-      <a class="brand" href="#top">Kang Yang</a>
-      <nav class="nav" aria-label="Sections">
-        <a href="#arc">Research Arc</a>
-        <a href="#works">Works</a>
-        <a href="#manuscripts">Manuscripts</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Links</a>
-      </nav>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to research</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top">Kang Yang</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#works">Papers</a>
+          <a href="#manuscripts">Manuscripts</a>
+          <a href="#contact">Links</a>
+          <button class="theme-toggle" type="button" hidden aria-label="Switch color theme">
+            <span class="theme-symbol" aria-hidden="true"></span>
+            <span class="theme-label">Theme</span>
+          </button>
+        </nav>
+      </div>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Master's research portfolio, 2023-2026</p>
-          <h1 id="hero-title">Kang Yang</h1>
-          <p class="subtitle">
-            MS Student, School of Information, Renmin University of China
-          </p>
-          <p class="hero-summary">
-            My master's research studies how connected vehicles and infrastructure
-            share compact, useful representations for robust 3D perception: from
-            camera-based BEV depth refinement, to anchor-centric communication,
-            to query and instance messages, to uncertainty-aware and loss-resilient
-            collaboration, to online adaptation for open-world heterogeneity.
-          </p>
-          <div class="focus-list" aria-label="Research focus">
-            <span>Collaborative Perception</span>
-            <span>Autonomous Driving Perception</span>
-            <span>Multi-agent 3D Detection</span>
+    <div class="page-layout">
+      <aside class="profile" id="arc" aria-labelledby="profile-name">
+        <div class="profile-inner">
+          <h1 id="profile-name">Kang Yang</h1>
+          <p class="affiliation"><span>M.S. Student</span> <span>School of Information</span> <span>Renmin University of China</span></p>
+          <p class="bio">I study how connected vehicles share information to perceive their surroundings and plan, efficiently and reliably.</p>
+          <div class="research-focus">
+            <p>Collaborative perception<br />Multimodal learning<br />Vision-language planning</p>
           </div>
-          <div class="hero-actions" id="contact">
-            <a href="https://scholar.google.com/citations?user=ULYCJ-UAAAAJ&hl=zh-CN">Google Scholar</a>
-            <a href="https://github.com/sidiangongyuan">GitHub</a>
-            <a href="https://openreview.net/profile?id=~yang_kang2">OpenReview</a>
+          <div class="profile-links" id="contact" aria-label="Academic profiles">
+            <a href="https://scholar.google.com/citations?user=ULYCJ-UAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/sidiangongyuan" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://openreview.net/profile?id=~yang_kang2" target="_blank" rel="noopener noreferrer">OpenReview <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-      </section>
+      </aside>
 
-      <section class="section intro-band" aria-label="Portfolio summary">
-        <div class="summary-grid">
-          <div>
-            <span class="summary-number">7</span>
-            <span class="summary-label">featured collaborative perception works</span>
+      <main id="main-content">
+        <section class="manuscripts-section" id="manuscripts" aria-labelledby="latest-title">
+          <h2 id="latest-title">Latest work</h2>
+          <article class="featured-manuscript" id="covlm-bench">
+            <div class="paper-meta"><span class="status">Manuscript</span><span>2026</span></div>
+            <h3>CoVLM-Bench: Does the Right Roadside View Matter for V2X Language and Planning?</h3>
+            <p>A real-world V2I benchmark connecting paired camera views, grounded driving questions, and structured planning. Roadside-input controls examine how models use shared visual evidence, with CoVLM-Drive as a VLM reference planner.</p>
+            <p class="availability">Preprint not yet available.</p>
+          </article>
+
+          <details class="manuscript-disclosure">
+            <summary>More manuscripts <span class="disclosure-count">2</span></summary>
+            <div class="manuscript-grid">
+              <article class="compact-manuscript" id="lrv2x">
+                <a class="manuscript-image" href="assets/projects/lrv2x-framework.png" target="_blank" rel="noopener noreferrer" aria-label="Open LR-V2X framework figure">
+                  <img src="assets/projects/lrv2x-framework.png" alt="LR-V2X framework for reconstructing collaborative features under packet loss." width="640" height="360" loading="lazy" decoding="async" />
+                </a>
+                <div class="paper-meta"><span>Manuscript</span><span>2026</span></div>
+                <h3>LR-V2X: Loss-Resilient Collaborative Perception under Low-Bandwidth Communication</h3>
+                <p>Reconstructing missing collaborative BEV context from compact messages to support perception under packet loss.</p>
+              </article>
+              <article class="compact-manuscript" id="qumco">
+                <a class="manuscript-image" href="assets/projects/qumco-framework.png" target="_blank" rel="noopener noreferrer" aria-label="Open QumCo framework figure">
+                  <img src="assets/projects/qumco-framework.png" alt="QumCo framework for multimodal and cross-agent fusion through sparse queries." width="640" height="360" loading="lazy" decoding="async" />
+                </a>
+                <div class="paper-meta"><span>Manuscript</span><span>2025</span></div>
+                <h3>QumCo: Query-Based Multimodal Collaborative Perception</h3>
+                <p>Sparse 3D queries connect local camera-LiDAR fusion with compact communication and cross-agent interaction.</p>
+              </article>
+            </div>
+          </details>
+        </section>
+
+        <section class="papers-section" id="works" aria-labelledby="works-title">
+          <div class="section-heading">
+            <h2 id="works-title">Selected papers</h2>
+            <p>First-author research in collaborative perception.</p>
           </div>
-          <div>
-            <span class="summary-number">6</span>
-            <span class="summary-label">research stages after 2023</span>
+          <div class="paper-list">
+            <article class="paper" id="uecp">
+              <a class="paper-image" href="https://arxiv.org/abs/2606.23046" target="_blank" rel="noopener noreferrer" aria-label="Read UECP">
+                <img src="assets/projects/uecp-framework.png" alt="UECP uncertainty-aware pyramid fusion framework." width="640" height="400" loading="lazy" decoding="async" />
+              </a>
+              <div class="paper-content">
+                <div class="paper-meta"><span class="venue">ECCV 2026</span><span>Uncertainty-aware fusion</span></div>
+                <h3><a href="https://arxiv.org/abs/2606.23046" target="_blank" rel="noopener noreferrer">UECP: Uncertainty-Enhanced Collaborative Perception</a></h3>
+                <p>Using physically grounded uncertainty to guide multi-scale feature fusion for more reliable collaborative 3D detection.</p>
+                <div class="paper-links"><a href="https://arxiv.org/abs/2606.23046" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/sidiangongyuan/UECP" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
+
+            <article class="paper" id="eimc">
+              <a class="paper-image" href="https://arxiv.org/abs/2603.02532" target="_blank" rel="noopener noreferrer" aria-label="Read EIMC">
+                <img src="assets/projects/eimc-framework.png" alt="EIMC multimodal feature extraction and instance-aware communication framework." width="640" height="400" loading="lazy" decoding="async" />
+              </a>
+              <div class="paper-content">
+                <div class="paper-meta"><span class="venue">ICRA 2026</span><span>Efficient multimodal fusion</span></div>
+                <h3><a href="https://arxiv.org/abs/2603.02532" target="_blank" rel="noopener noreferrer">EIMC: Efficient Instance-aware Multi-modal Collaborative Perception</a></h3>
+                <p>Combining early collaborative voxels with selective instance messages to reduce communication while preserving detection quality.</p>
+                <div class="paper-links"><a href="https://arxiv.org/abs/2603.02532" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/sidiangongyuan/EIMC" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
+
+            <article class="paper" id="bolt">
+              <a class="paper-image" href="https://arxiv.org/abs/2605.00405" target="_blank" rel="noopener noreferrer" aria-label="Read BOLT">
+                <img src="assets/projects/bolt-framework.png" alt="BOLT ego-side adaptation plugin for unfamiliar collaborators." width="640" height="400" loading="lazy" decoding="async" />
+              </a>
+              <div class="paper-content">
+                <div class="paper-meta"><span class="venue">arXiv 2026</span><span>Online adaptation</span></div>
+                <h3><a href="https://arxiv.org/abs/2605.00405" target="_blank" rel="noopener noreferrer">BOLT: Online Lightweight Adaptation for Preparation-Free Heterogeneous Cooperative Perception</a></h3>
+                <p>Adapting a lightweight ego-side plugin when unfamiliar agents meet, without labels or joint cooperative training.</p>
+                <div class="paper-links"><a href="https://arxiv.org/abs/2605.00405" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/sidiangongyuan/BOLT" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
+
+            <article class="paper" id="acco">
+              <a class="paper-image" href="https://arxiv.org/abs/2503.13946" target="_blank" rel="noopener noreferrer" aria-label="Read ACCO">
+                <img src="assets/projects/acco-framework.png" alt="ACCO sparse anchor communication and spatial-aware fusion framework." width="640" height="400" loading="lazy" decoding="async" />
+              </a>
+              <div class="paper-content">
+                <div class="paper-meta"><span class="venue">ICRA 2025</span><span>Anchor-centric collaboration</span></div>
+                <h3><a href="https://arxiv.org/abs/2503.13946" target="_blank" rel="noopener noreferrer">Is Discretization Fusion All You Need for Collaborative Perception?</a></h3>
+                <p>Exchanging confident anchor queries instead of dense feature maps for compact communication and long-range perception.</p>
+                <div class="paper-links"><a href="https://arxiv.org/abs/2503.13946" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/sidiangongyuan/ACCO" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
+
+            <article class="paper" id="codrma">
+              <a class="paper-image" href="https://dblp.org/rec/conf/case/YangWHJ24.html" target="_blank" rel="noopener noreferrer" aria-label="View the CoDRMA publication record">
+                <img src="assets/projects/codrma-recreated-overview.png" alt="CoDRMA overview of dual-mask depth refinement and dual-attention message refinement." width="640" height="400" loading="lazy" decoding="async" />
+              </a>
+              <div class="paper-content">
+                <div class="paper-meta"><span class="venue">IEEE CASE 2024</span><span>Camera-based perception</span></div>
+                <h3><a href="https://dblp.org/rec/conf/case/YangWHJ24.html" target="_blank" rel="noopener noreferrer">CoDRMA: Collaborative Depth Refinement via Dual-Mask and Dual-Attention for BEV Collaborative 3D Object Detection</a></h3>
+                <p>Refining camera depth and collaborative messages to improve bird's-eye-view 3D object detection.</p>
+                <div class="paper-links"><a href="https://dblp.org/rec/conf/case/YangWHJ24.html" target="_blank" rel="noopener noreferrer">Publication record <span aria-hidden="true">↗</span></a></div>
+              </div>
+            </article>
           </div>
-          <div>
-            <span class="summary-number">2024-2026</span>
-            <span class="summary-label">counted master's research window</span>
+        </section>
+
+        <section class="additional-section" id="publications" aria-labelledby="publications-title">
+          <h2 id="publications-title">Other publications</h2>
+          <div class="additional-list">
+            <article>
+              <p class="paper-meta">arXiv 2025</p>
+              <h3><a href="https://arxiv.org/abs/2505.23048" target="_blank" rel="noopener noreferrer">ProDiff: Prototype-Guided Diffusion for Minimal Information Trajectory Imputation <span aria-hidden="true">↗</span></a></h3>
+            </article>
+            <article>
+              <p class="paper-meta">NeurIPS 2024</p>
+              <h3><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/d6938c8e88ef62394d2f4f3fd428e036-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Point-PRC: A Prompt Learning Based Regulation Framework for Generalizable Point Cloud Analysis <span aria-hidden="true">↗</span></a></h3>
+            </article>
+            <article>
+              <p class="paper-meta">The Web Conference 2024</p>
+              <h3><a href="https://openreview.net/forum?id=3TSpM7X2aY" target="_blank" rel="noopener noreferrer">DRAM-like Architecture with Asynchronous Refreshing for Continual Relation Extraction <span aria-hidden="true">↗</span></a></h3>
+            </article>
           </div>
-        </div>
-      </section>
-
-      <section class="section" id="arc" aria-labelledby="arc-title">
-        <div class="section-heading">
-          <p class="eyebrow">Main thread</p>
-          <h2 id="arc-title">Collaborative perception research arc</h2>
-          <p>
-            The work moves from improving camera-based BEV collaboration, to
-            replacing dense feature-map communication with sparse anchors and
-            queries, to efficient multimodal instance communication, to robustness
-            under uncertainty and packet loss, and finally to online adaptation
-            when unfamiliar agents meet at deployment.
-          </p>
-        </div>
-        <div class="arc" id="arc-list"></div>
-      </section>
-
-      <section class="section" id="works" aria-labelledby="works-title">
-        <div class="section-heading">
-          <p class="eyebrow">Featured works</p>
-          <h2 id="works-title">First-author collaborative perception projects</h2>
-          <p>
-            Each project is summarized around the problem, idea, personal role,
-            and result so a visitor can quickly understand the contribution.
-          </p>
-        </div>
-        <div class="works" id="featured-works"></div>
-      </section>
-
-      <section class="section manuscript-section" id="manuscripts" aria-labelledby="manuscripts-title">
-        <div class="section-heading">
-          <p class="eyebrow">Selected manuscripts</p>
-          <h2 id="manuscripts-title">Additional collaborative perception work</h2>
-          <p>
-            These manuscript-stage projects are summarized without venue,
-            submission, or private PDF details.
-          </p>
-        </div>
-        <div class="works" id="manuscript-works"></div>
-      </section>
-
-      <section class="section other-section" id="publications" aria-labelledby="publications-title">
-        <div class="section-heading">
-          <p class="eyebrow">Broader research</p>
-          <h2 id="publications-title">Other research during the master's period</h2>
-          <p>
-            These projects are listed as supporting work. The 2023 TMM paper is
-            intentionally excluded from the master's-period portfolio.
-          </p>
-        </div>
-        <div class="other-list" id="other-research"></div>
-      </section>
-
-      <section class="section sources" aria-labelledby="sources-title">
-        <div class="section-heading compact">
-          <p class="eyebrow">Source notes</p>
-          <h2 id="sources-title">Public links used for this page</h2>
-        </div>
-        <div class="source-links" id="source-links"></div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p>
-        Built as a static GitHub Pages portfolio. Last updated on 2026-06-27.
-      </p>
-    </footer>
-
-    <script src="app.js"></script>
+        </section>
+        <footer class="footer"><p>Kang Yang</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>
+      </main>
+    </div>
   </body>
 </html>
