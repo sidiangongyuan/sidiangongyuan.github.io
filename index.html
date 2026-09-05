@@ -11,26 +11,38 @@
     <meta property="og:description" content="Research on collaborative perception and planning for autonomous driving. Selected papers, manuscripts, and code." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sidiangongyuan.github.io/" />
-    <meta property="og:image" content="https://sidiangongyuan.github.io/assets/projects/eimc-framework.png" />
-    <meta property="og:image:alt" content="EIMC collaborative perception framework" />
+    <meta property="og:image" content="https://sidiangongyuan.github.io/assets/projects/covlm-bench/overview.png" />
+    <meta property="og:image:alt" content="CoVLM-Bench connects roadside evidence, language, and planning" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317483e'/%3E%3Cpath d='M15 43V21h7v9l11-9h10L30 31l14 12H33L22 33v10z' fill='%23f7fbf9'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="styles.css?v=20260905" />
-    <script src="app.js?v=20260905" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260905-gallery" />
+    <script src="app.js?v=20260905-gallery" type="module"></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Skip to research</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="#top">Kang Yang</a>
-        <nav class="nav" aria-label="Main navigation">
-          <a href="#works">Papers</a>
-          <a href="#manuscripts">Manuscripts</a>
-          <a href="#contact">Links</a>
+        <div class="header-controls">
+          <nav class="nav" aria-label="Main navigation">
+            <a href="#works">Papers</a>
+            <a href="#manuscripts">Manuscripts</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#contact">Links</a>
+          </nav>
+          <details class="mobile-navigation">
+            <summary>Menu</summary>
+            <nav aria-label="Mobile navigation">
+              <a href="#works">Papers</a>
+              <a href="#manuscripts">Manuscripts</a>
+              <a href="#timeline">Timeline</a>
+              <a href="#contact">Links</a>
+            </nav>
+          </details>
           <button class="theme-toggle" type="button" hidden aria-label="Switch color theme">
             <span class="theme-symbol" aria-hidden="true"></span>
             <span class="theme-label">Theme</span>
           </button>
-        </nav>
+        </div>
       </div>
     </header>
 
@@ -58,7 +70,48 @@
             <div class="paper-meta"><span class="status">Manuscript</span><span>2026</span></div>
             <h3>CoVLM-Bench: Does the Right Roadside View Matter for V2X Language and Planning?</h3>
             <p>A real-world V2I benchmark connecting paired camera views, grounded driving questions, and structured planning. Roadside-input controls examine how models use shared visual evidence, with CoVLM-Drive as a VLM reference planner.</p>
-            <p class="availability">Preprint not yet available.</p>
+            <div class="project-actions">
+              <p class="availability">Preprint not yet available.</p>
+              <button class="text-button" id="copy-project-link" type="button" hidden>Copy project link</button>
+              <span class="copy-feedback" id="copy-feedback" role="status"></span>
+              <input class="share-url" id="share-url" type="text" value="https://sidiangongyuan.github.io/#covlm-bench" aria-label="Project link for manual copying" readonly hidden />
+            </div>
+
+            <div class="project-gallery" aria-label="CoVLM-Bench figures">
+              <figure class="gallery-figure">
+                <a class="gallery-preview" id="gallery-preview" href="assets/projects/covlm-bench/overview.png" target="_blank" rel="noopener noreferrer" aria-label="Enlarge CoVLM-Bench overview">
+                  <img id="gallery-image" src="assets/projects/covlm-bench/overview-preview.webp" alt="Conceptual overview connecting paired vehicle and roadside views with language and planning." width="1600" height="1045" fetchpriority="high" decoding="async" />
+                </a>
+                <figcaption>
+                  <span id="gallery-caption" aria-live="polite">A conceptual overview of language, planning, and cooperative visual evidence.</span>
+                  <a id="enlarge-figure" href="assets/projects/covlm-bench/overview.png" target="_blank" rel="noopener noreferrer">Enlarge figure <span aria-hidden="true">↗</span></a>
+                </figcaption>
+              </figure>
+              <div class="gallery-choices" role="group" aria-label="Choose a figure">
+                <a class="gallery-choice" href="assets/projects/covlm-bench/overview.png" target="_blank" rel="noopener noreferrer" data-label="Overview" data-preview="assets/projects/covlm-bench/overview-preview.webp" data-caption="A conceptual overview of language, planning, and cooperative visual evidence." aria-current="true">
+                  <img src="assets/projects/covlm-bench/overview-thumb.webp" alt="Conceptual overview connecting paired vehicle and roadside views with language and planning." width="240" height="160" loading="lazy" decoding="async" /><span>Overview</span>
+                </a>
+                <a class="gallery-choice" href="assets/projects/covlm-bench/framework.png" target="_blank" rel="noopener noreferrer" data-label="Framework" data-preview="assets/projects/covlm-bench/framework-preview.webp" data-caption="CoVLM-Drive uses paired views with a rationale branch and separate structured planning heads.">
+                  <img src="assets/projects/covlm-bench/framework-thumb.webp" alt="CoVLM-Drive framework with ego and roadside inputs, rationale generation, and a separate trajectory output." width="240" height="160" loading="lazy" decoding="async" /><span>Framework</span>
+                </a>
+                <a class="gallery-choice" href="assets/projects/covlm-bench/evidence.png" target="_blank" rel="noopener noreferrer" data-label="Evidence" data-preview="assets/projects/covlm-bench/evidence-preview.webp" data-caption="Scene overview, evidence sources, and decision reasoning are linked to visible road users.">
+                  <img src="assets/projects/covlm-bench/evidence-thumb.webp" alt="Source-traceable evidence chain linking annotated road users in two views to a three-part rationale." width="240" height="160" loading="lazy" decoding="async" /><span>Evidence</span>
+                </a>
+                <a class="gallery-choice" href="assets/projects/covlm-bench/coverage.png" target="_blank" rel="noopener noreferrer" data-label="Coverage" data-preview="assets/projects/covlm-bench/coverage-preview.webp" data-caption="Dataset statistics describe which road users are visible from each camera and how often roadside-only objects occur.">
+                  <img src="assets/projects/covlm-bench/coverage-thumb.webp" alt="Visibility-source distributions by road-user class and the number of roadside-only objects per frame." width="240" height="160" loading="lazy" decoding="async" /><span>Coverage</span>
+                </a>
+                <a class="gallery-choice" href="assets/projects/covlm-bench/controls.png" target="_blank" rel="noopener noreferrer" data-label="Controls" data-preview="assets/projects/covlm-bench/controls-preview.webp" data-caption="Four matched conditions change only the roadside input: valid, ego-only, blank, and shuffled.">
+                  <img src="assets/projects/covlm-bench/controls-thumb.webp" alt="The four roadside-input conditions: matched roadside image, no roadside image, empty image, and an image from another scene." width="240" height="160" loading="lazy" decoding="async" /><span>Controls</span>
+                </a>
+                <a class="gallery-choice" href="assets/projects/covlm-bench/qa.png" target="_blank" rel="noopener noreferrer" data-label="QA examples" data-preview="assets/projects/covlm-bench/qa-preview.webp" data-caption="Two examples show Qwen3-VL-8B + QA SFT identifying roadside-only road users, with answers under each input condition.">
+                  <img src="assets/projects/covlm-bench/qa-thumb.webp" alt="Grounded questions and answers for two paired-camera scenes, comparing matched and altered roadside views." width="240" height="160" loading="lazy" decoding="async" /><span>QA examples</span>
+                </a>
+                <a class="gallery-choice" href="assets/projects/covlm-bench/planning.png" target="_blank" rel="noopener noreferrer" data-label="Planning" data-preview="assets/projects/covlm-bench/planning-preview.webp" data-caption="Trajectory comparisons with UniMM-V2X and UniV2X show two command-correct examples and one command mismatch.">
+                  <img src="assets/projects/covlm-bench/planning-thumb.webp" alt="Three planning examples with projected trajectories and bird's-eye views, including two correct commands and one failure." width="240" height="160" loading="lazy" decoding="async" /><span>Planning</span>
+                </a>
+              </div>
+              <p class="gallery-error" id="gallery-error" role="status" hidden>Preview unavailable. Use Enlarge figure to open the original image.</p>
+            </div>
           </article>
 
           <details class="manuscript-disclosure">
@@ -89,8 +142,27 @@
             <h2 id="works-title">Selected papers</h2>
             <p>First-author research in collaborative perception.</p>
           </div>
+          <form class="paper-filters" id="paper-filters" role="search" aria-label="Search selected papers" hidden>
+            <div class="search-field">
+              <label for="paper-search">Search selected papers</label>
+              <input id="paper-search" type="search" name="q" placeholder="Title, method, or topic" autocomplete="off" />
+            </div>
+            <div class="year-field">
+              <label for="paper-year">Year</label>
+              <select id="paper-year" name="year">
+                <option value="all">All years</option>
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+              </select>
+            </div>
+            <div class="filter-summary">
+              <p id="paper-count" role="status">5 papers</p>
+              <button class="text-button" id="clear-filters" type="reset" hidden>Clear filters</button>
+            </div>
+          </form>
           <div class="paper-list">
-            <article class="paper" id="uecp">
+            <article class="paper" id="uecp" data-year="2026">
               <a class="paper-image" href="https://arxiv.org/abs/2606.23046" target="_blank" rel="noopener noreferrer" aria-label="Read UECP">
                 <img src="assets/projects/uecp-framework.png" alt="UECP uncertainty-aware pyramid fusion framework." width="640" height="400" loading="lazy" decoding="async" />
               </a>
@@ -102,7 +174,7 @@
               </div>
             </article>
 
-            <article class="paper" id="eimc">
+            <article class="paper" id="eimc" data-year="2026">
               <a class="paper-image" href="https://arxiv.org/abs/2603.02532" target="_blank" rel="noopener noreferrer" aria-label="Read EIMC">
                 <img src="assets/projects/eimc-framework.png" alt="EIMC multimodal feature extraction and instance-aware communication framework." width="640" height="400" loading="lazy" decoding="async" />
               </a>
@@ -114,7 +186,7 @@
               </div>
             </article>
 
-            <article class="paper" id="bolt">
+            <article class="paper" id="bolt" data-year="2026">
               <a class="paper-image" href="https://arxiv.org/abs/2605.00405" target="_blank" rel="noopener noreferrer" aria-label="Read BOLT">
                 <img src="assets/projects/bolt-framework.png" alt="BOLT ego-side adaptation plugin for unfamiliar collaborators." width="640" height="400" loading="lazy" decoding="async" />
               </a>
@@ -126,7 +198,7 @@
               </div>
             </article>
 
-            <article class="paper" id="acco">
+            <article class="paper" id="acco" data-year="2025">
               <a class="paper-image" href="https://arxiv.org/abs/2503.13946" target="_blank" rel="noopener noreferrer" aria-label="Read ACCO">
                 <img src="assets/projects/acco-framework.png" alt="ACCO sparse anchor communication and spatial-aware fusion framework." width="640" height="400" loading="lazy" decoding="async" />
               </a>
@@ -138,7 +210,7 @@
               </div>
             </article>
 
-            <article class="paper" id="codrma">
+            <article class="paper" id="codrma" data-year="2024">
               <a class="paper-image" href="https://dblp.org/rec/conf/case/YangWHJ24.html" target="_blank" rel="noopener noreferrer" aria-label="View the CoDRMA publication record">
                 <img src="assets/projects/codrma-recreated-overview.png" alt="CoDRMA overview of dual-mask depth refinement and dual-attention message refinement." width="640" height="400" loading="lazy" decoding="async" />
               </a>
@@ -150,27 +222,84 @@
               </div>
             </article>
           </div>
+          <p class="empty-results" id="empty-results" hidden>No matching papers. Try another keyword or choose All years.</p>
         </section>
 
         <section class="additional-section" id="publications" aria-labelledby="publications-title">
           <h2 id="publications-title">Other publications</h2>
           <div class="additional-list">
-            <article>
+            <article id="prodiff">
               <p class="paper-meta">arXiv 2025</p>
               <h3><a href="https://arxiv.org/abs/2505.23048" target="_blank" rel="noopener noreferrer">ProDiff: Prototype-Guided Diffusion for Minimal Information Trajectory Imputation <span aria-hidden="true">↗</span></a></h3>
             </article>
-            <article>
+            <article id="point-prc">
               <p class="paper-meta">NeurIPS 2024</p>
               <h3><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/d6938c8e88ef62394d2f4f3fd428e036-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Point-PRC: A Prompt Learning Based Regulation Framework for Generalizable Point Cloud Analysis <span aria-hidden="true">↗</span></a></h3>
             </article>
-            <article>
+            <article id="dram">
               <p class="paper-meta">The Web Conference 2024</p>
               <h3><a href="https://openreview.net/forum?id=3TSpM7X2aY" target="_blank" rel="noopener noreferrer">DRAM-like Architecture with Asynchronous Refreshing for Continual Relation Extraction <span aria-hidden="true">↗</span></a></h3>
             </article>
           </div>
         </section>
+
+        <section class="timeline-section" id="timeline" aria-labelledby="timeline-title">
+          <div class="section-heading">
+            <h2 id="timeline-title">Research timeline</h2>
+            <p>Projects and publications, grouped by year.</p>
+          </div>
+          <ol class="timeline">
+            <li>
+              <time datetime="2026">2026</time>
+              <div class="timeline-content">
+                <h3>Reliable collaboration and V2X planning</h3>
+                <p>Uncertainty-aware fusion, adaptation to unfamiliar agents, and vision-language evaluation with roadside evidence.</p>
+                <div class="timeline-links"><a href="#covlm-bench">CoVLM-Bench</a><a href="#uecp">UECP</a><a href="#eimc">EIMC</a><a href="#bolt">BOLT</a><a href="#lrv2x">LR-V2X</a></div>
+              </div>
+            </li>
+            <li>
+              <time datetime="2025">2025</time>
+              <div class="timeline-content">
+                <h3>Compact messages and multimodal collaboration</h3>
+                <p>Sparse anchors and queries for efficient collaboration, alongside trajectory imputation.</p>
+                <div class="timeline-links"><a href="#acco">ACCO</a><a href="#qumco">QumCo</a><a href="#prodiff">ProDiff</a></div>
+              </div>
+            </li>
+            <li>
+              <time datetime="2024">2024</time>
+              <div class="timeline-content">
+                <h3>3D perception and representation learning</h3>
+                <p>Camera-based collaborative detection, point cloud generalization, and continual relation extraction.</p>
+                <div class="timeline-links"><a href="#codrma">CoDRMA</a><a href="#point-prc">Point-PRC</a><a href="#dram">DRAM-like</a></div>
+              </div>
+            </li>
+          </ol>
+        </section>
         <footer class="footer"><p>Kang Yang</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>
       </main>
     </div>
+    <dialog class="figure-dialog" id="figure-viewer" aria-labelledby="viewer-title" aria-describedby="viewer-caption">
+      <div class="viewer-header">
+        <div><p>CoVLM-Bench</p><h2 id="viewer-title">Overview</h2></div>
+        <button class="control-button" id="close-viewer" type="button" autofocus>Close <span aria-hidden="true">×</span></button>
+      </div>
+      <div class="viewer-stage" id="viewer-stage" tabindex="0" role="region" aria-label="Enlarged figure; scroll to explore when zoomed">
+        <img id="viewer-image" alt="" decoding="async" />
+      </div>
+      <div class="viewer-footer">
+        <p id="viewer-caption"></p>
+        <p class="viewer-error" id="viewer-error" role="status" hidden>Image could not load. Try Open original.</p>
+        <div class="viewer-controls">
+          <div class="viewer-pagination">
+            <button class="control-button" id="previous-figure" type="button" aria-label="Previous figure">← Previous</button>
+            <button class="control-button" id="next-figure" type="button" aria-label="Next figure">Next →</button>
+          </div>
+          <div class="viewer-tools">
+            <button class="control-button" id="zoom-figure" type="button" aria-pressed="false">Zoom in</button>
+            <a class="control-button" id="original-figure" href="assets/projects/covlm-bench/overview.png" target="_blank" rel="noopener noreferrer">Open original <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>

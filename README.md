@@ -18,6 +18,17 @@ Edit paper titles, summaries, and public links in `index.html`. Unpublished
 manuscripts are labeled separately from published papers and arXiv preprints.
 Add the CoVLM-Bench arXiv link to its article when it becomes available.
 
+The CoVLM-Bench gallery contains seven curated manuscript figures with lightweight
+WebP previews and full-resolution PNG originals. Figure labels and captions live
+in the gallery links in `index.html`. It supports keyboard navigation, an enlarged
+viewer, zoom, and direct links to the original images.
+
+The page also includes keyword/year filters for selected papers, a linked research
+timeline, project-link sharing, and an optional color-theme preference. Update the
+timeline alongside new research entries. Use only confirmed publication years;
+manuscripts and arXiv preprints are not labeled as accepted conference papers.
+
 Preview locally with `python3 -m http.server`. No build step or package install
-is required. All research content is available without JavaScript; `app.js`
-only manages the optional color-theme preference.
+is required. All research content and original-image links are available without
+JavaScript. Run `node --test tests/site-utils.test.mjs` for search/navigation helper
+tests and static content/resource checks, and `node --check app.js` for syntax.
