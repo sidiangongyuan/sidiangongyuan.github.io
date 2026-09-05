@@ -298,6 +298,7 @@ summary::marker { color: var(--accent); font-size: 10px; }
   .profile h1 { font-size: 42px; }
   .profile-inner { max-width: 620px; }
   .affiliation span { display: inline; }
+  .affiliation span:not(:last-child)::after { content: ", "; }
   .affiliation { max-width: 400px; margin-top: 12px; }
   .bio { max-width: 500px; margin-top: 18px; }
   .research-focus { display: none; }
