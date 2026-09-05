@@ -11,9 +11,3 @@ export function matchesPaper(paper, query, year = "all") {
   const text = searchTerms(paper.text).join(" ");
   return searchTerms(query).every(term => text.includes(term));
 }
-
-/** Wrap previous/next navigation, including negative indices. */
-export function wrapIndex(index, count) {
-  if (!Number.isInteger(count) || count < 1) throw new RangeError("Empty gallery");
-  return ((index % count) + count) % count;
-}

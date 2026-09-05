@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { matchesPaper, searchTerms, wrapIndex } from "../site-utils.mjs";
+import { matchesPaper, searchTerms } from "../site-utils.mjs";
 
 const root = new URL("../", import.meta.url);
 const html = readFileSync(new URL("index.html", root), "utf8");
@@ -27,14 +27,6 @@ test("year and keyword filters combine and support empty results", () => {
   assert.equal(papers.filter(p => matchesPaper(p, "camera", "2024")).length, 1);
 });
 
-test("gallery wraps in both directions", () => {
-  assert.equal(wrapIndex(-1, 7), 6);
-  assert.equal(wrapIndex(7, 7), 0);
-  assert.equal(wrapIndex(-8, 7), 6);
-  assert.equal(wrapIndex(13, 7), 6);
-  assert.throws(() => wrapIndex(0, 0), RangeError);
-});
-
 test("all static anchors resolve and IDs are unique", () => {
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length);
@@ -52,14 +44,12 @@ test("all local image, style, and module references exist", () => {
   assert.ok(existsSync(new URL("site-utils.mjs", root)));
 });
 
-test("gallery exposes seven original images with accessible fallback links", () => {
-  const choices = [...html.matchAll(/<a class="gallery-choice"[^>]*>/g)].map(m => m[0]);
-  assert.equal(choices.length, 7);
-  for (const choice of choices) {
-    assert.match(choice, /href="assets\/projects\/covlm-bench\/[a-z]+\.png"/);
-    assert.match(choice, /data-caption="[^"]+"/);
-    assert.match(choice, /data-label="[^"]+"/);
-  }
+test("CoVLM-Bench exposes one original teaser with accessible fallback link", () => {
+  const imageLink = html.match(/<a class="featured-manuscript-image"[^>]*>/)?.[0];
+  assert.ok(imageLink);
+  assert.match(imageLink, /href="assets\/projects\/covlm-bench\/teaser\.png"/);
+  assert.match(imageLink, /aria-label="Open CoVLM-Bench teaser figure"/);
+  assert.equal((html.match(/href="assets\/projects\/covlm-bench\/[a-z-]+\.png"/g) ?? []).length, 1);
 });
 
 test("all selected papers have years and timeline covers all research entries", () => {

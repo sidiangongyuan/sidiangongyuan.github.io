@@ -1,4 +1,4 @@
-import { matchesPaper, wrapIndex } from "./site-utils.mjs?v=20260905-gallery";
+import { matchesPaper } from "./site-utils.mjs?v=20260905-single";
 
 function initTheme() {
   const root = document.documentElement;
@@ -118,143 +118,6 @@ function initNavigation(resetFilters) {
   revealTarget(window.location.hash);
 }
 
-function initGallery() {
-  const choices = [...document.querySelectorAll(".gallery-choice")];
-  const preview = document.querySelector("#gallery-preview");
-  const previewImage = document.querySelector("#gallery-image");
-  const caption = document.querySelector("#gallery-caption");
-  const enlarge = document.querySelector("#enlarge-figure");
-  const previewError = document.querySelector("#gallery-error");
-  const dialog = document.querySelector("#figure-viewer");
-  const viewerImage = document.querySelector("#viewer-image");
-  const viewerStage = document.querySelector("#viewer-stage");
-  const viewerTitle = document.querySelector("#viewer-title");
-  const viewerCaption = document.querySelector("#viewer-caption");
-  const viewerError = document.querySelector("#viewer-error");
-  const original = document.querySelector("#original-figure");
-  const zoom = document.querySelector("#zoom-figure");
-  let current = 0;
-
-  function selectFigure(index) {
-    current = wrapIndex(index, choices.length);
-    const choice = choices[current];
-    choices.forEach((item, i) => item.setAttribute("aria-current", String(i === current)));
-    preview.href = choice.href;
-    enlarge.href = choice.href;
-    preview.setAttribute("aria-label", `Enlarge CoVLM-Bench ${choice.dataset.label} figure`);
-    caption.textContent = choice.dataset.caption;
-    previewImage.alt = choice.querySelector("img").alt;
-    previewError.hidden = true;
-    preview.setAttribute("aria-busy", "true");
-    previewImage.src = choice.dataset.preview;
-    if (previewImage.complete && previewImage.naturalWidth > 0) {
-      preview.setAttribute("aria-busy", "false");
-    }
-    if (dialog.open) showViewerImage();
-  }
-
-  function resetZoom() {
-    viewerStage.classList.remove("is-zoomed");
-    viewerStage.scrollTop = 0;
-    viewerStage.scrollLeft = 0;
-    zoom.textContent = "Zoom in";
-    zoom.setAttribute("aria-pressed", "false");
-  }
-
-  function showViewerImage() {
-    const choice = choices[current];
-    resetZoom();
-    viewerTitle.textContent = choice.dataset.label;
-    viewerCaption.textContent = choice.dataset.caption;
-    viewerImage.alt = choice.querySelector("img").alt;
-    viewerError.hidden = true;
-    viewerStage.setAttribute("aria-busy", "true");
-    viewerImage.src = choice.href;
-    original.href = choice.href;
-    if (viewerImage.complete && viewerImage.naturalWidth > 0) {
-      viewerStage.setAttribute("aria-busy", "false");
-    }
-  }
-
-  choices.forEach((choice, index) => {
-    // Links retain their original-image destination when JavaScript is unavailable.
-    choice.setAttribute("role", "button");
-    choice.setAttribute("aria-label", `Show ${choice.dataset.label} figure`);
-    choice.addEventListener("click", event => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      selectFigure(index);
-    });
-    choice.addEventListener("keydown", event => {
-      if (event.key === " ") {
-        event.preventDefault();
-        selectFigure(index);
-      } else if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
-        event.preventDefault();
-        const next = event.key === "Home" ? 0 : event.key === "End" ? choices.length - 1
-          : wrapIndex(index + (event.key === "ArrowRight" ? 1 : -1), choices.length);
-        choices[next].focus();
-        selectFigure(next);
-      }
-    });
-  });
-  previewImage.addEventListener("load", () => {
-    preview.setAttribute("aria-busy", "false");
-    previewError.hidden = true;
-  });
-  previewImage.addEventListener("error", () => {
-    preview.setAttribute("aria-busy", "false");
-    previewError.hidden = false;
-  });
-  if (previewImage.complete && previewImage.naturalWidth === 0) previewError.hidden = false;
-
-  // Older browsers keep the ordinary image links instead of an incomplete modal.
-  if (typeof dialog.showModal !== "function") return;
-  for (const link of [preview, enlarge]) {
-    link.addEventListener("click", event => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      showViewerImage();
-      dialog.showModal();
-      document.body.classList.add("viewer-open");
-    });
-  }
-  document.querySelector("#close-viewer").addEventListener("click", () => dialog.close());
-  document.querySelector("#previous-figure").addEventListener("click", () => selectFigure(current - 1));
-  document.querySelector("#next-figure").addEventListener("click", () => selectFigure(current + 1));
-  dialog.addEventListener("close", () => {
-    document.body.classList.remove("viewer-open");
-    resetZoom();
-  });
-  dialog.addEventListener("click", event => {
-    if (event.target !== dialog) return;
-    const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right
-      || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-  });
-  dialog.addEventListener("keydown", event => {
-    if (viewerStage.classList.contains("is-zoomed")) return;
-    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
-      event.preventDefault();
-      selectFigure(current + (event.key === "ArrowRight" ? 1 : -1));
-    }
-  });
-  zoom.addEventListener("click", () => {
-    const zoomed = viewerStage.classList.toggle("is-zoomed");
-    zoom.textContent = zoomed ? "Fit image" : "Zoom in";
-    zoom.setAttribute("aria-pressed", String(zoomed));
-    if (!zoomed) resetZoom();
-  });
-  viewerImage.addEventListener("load", () => {
-    viewerStage.setAttribute("aria-busy", "false");
-    viewerError.hidden = true;
-  });
-  viewerImage.addEventListener("error", () => {
-    viewerStage.setAttribute("aria-busy", "false");
-    viewerError.hidden = false;
-  });
-}
-
 function initProjectSharing() {
   const button = document.querySelector("#copy-project-link");
   const feedback = document.querySelector("#copy-feedback");
@@ -280,5 +143,4 @@ function initProjectSharing() {
 
 initTheme();
 initNavigation(initPaperFilters());
-initGallery();
 initProjectSharing();

@@ -18,10 +18,9 @@ Edit paper titles, summaries, and public links in `index.html`. Unpublished
 manuscripts are labeled separately from published papers and arXiv preprints.
 Add the CoVLM-Bench arXiv link to its article when it becomes available.
 
-The CoVLM-Bench gallery contains seven curated manuscript figures with lightweight
-WebP previews and full-resolution PNG originals. Figure labels and captions live
-in the gallery links in `index.html`. It supports keyboard navigation, an enlarged
-viewer, zoom, and direct links to the original images.
+The CoVLM-Bench project card includes one curated teaser figure, matching the
+single-image treatment used for the other projects. It links to the original
+full-resolution PNG and is easy to replace when a public preprint is available.
 
 The page also includes keyword/year filters for selected papers, a linked research
 timeline, project-link sharing, and an optional color-theme preference. Update the
